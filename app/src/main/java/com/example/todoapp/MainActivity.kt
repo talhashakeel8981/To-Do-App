@@ -3,52 +3,43 @@ package com.example.todoapp
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
-import androidx.activity.enableEdgeToEdge
-import androidx.compose.foundation.layout.fillMaxSize
-import androidx.compose.foundation.layout.padding
-import androidx.compose.material3.Scaffold
-import androidx.compose.material3.Text
-import androidx.compose.runtime.Composable
-import androidx.compose.ui.Modifier
-import androidx.compose.ui.tooling.preview.Preview
-import com.example.todoapp.ui.theme.ToDoAppTheme
+import androidx.compose.runtime.*
+import androidx.navigation.NavType
+import androidx.navigation.compose.*
+import androidx.navigation.compose.rememberNavController
+import androidx.navigation.navArgument
+import java.net.URLEncoder
+import java.nio.charset.StandardCharsets
 
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        enableEdgeToEdge()
         setContent {
-            ToDoAppTheme {
-                Scaffold(modifier = Modifier.fillMaxSize()) { innerPadding ->
-                    Greeting(
-                        name = "Android",
-                        modifier = Modifier.padding(innerPadding)
+            val navController = rememberNavController()
+            val tasks = remember { mutableStateListOf<Task>() }
+
+            NavHost(navController = navController, startDestination = "home") {
+                composable("home") {
+                    HomeScreen(navController, tasks)
+                }
+                composable("add") {
+                    AddTaskScreen(navController) { title, desc ->
+                        tasks.add(Task(title, desc))
+                        navController.popBackStack() // go back to home
+                    }
+                }
+                composable(
+                    "detail/{title}/{desc}",
+                    arguments = listOf(
+                        navArgument("title") { type = NavType.StringType },
+                        navArgument("desc") { type = NavType.StringType }
                     )
+                ) { backStackEntry ->
+                    val title = backStackEntry.arguments?.getString("title")
+                    val desc = backStackEntry.arguments?.getString("desc")
+                    DetailScreen(navController, title, desc)
                 }
             }
         }
     }
 }
-
-@Composable
-fun Greeting(name: String, modifier: Modifier = Modifier) {
-    Text(
-        text = "Hello $name!",
-        modifier = modifier
-    )
-}
-
-@Preview(showBackground = true)
-@Composable
-fun GreetingPreview() {
-    ToDoAppTheme {
-        Greeting("Android")
-    }
-}
-@Composable
-Fun
-        dcdcdsghhhhvfvv
-        vfvfvf
-
-
-        vvfvfvffvfddcdcdc
