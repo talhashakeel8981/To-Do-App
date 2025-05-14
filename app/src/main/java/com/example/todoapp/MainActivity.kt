@@ -40,7 +40,10 @@ class MainActivity : ComponentActivity() {
 //                    DetailScreen(navController, title, desc)
 //                }
 //            }
-            FirstExampleDateStore()
+//            FirstExampleDateStore()
+//            SettingsScreen()
+            SharedPreferenceExample(this)
+//             SharedPreferenceExamplePractise(this)
         }
 
     }
