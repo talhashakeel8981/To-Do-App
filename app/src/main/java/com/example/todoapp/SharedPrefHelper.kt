@@ -25,4 +25,12 @@ class SharedPrefHelper(context: Context){
     fun getName():String{
         return sharedPref.getString("user_name","")?:""
     }
+    fun savedesc(desc:String)
+    {
+        sharedPref.edit().putString("desc_ription",desc).apply()
+    }
+    fun getdesc():String{
+        return sharedPref.getString("desc_ription","")?:""
+    }
+
 }

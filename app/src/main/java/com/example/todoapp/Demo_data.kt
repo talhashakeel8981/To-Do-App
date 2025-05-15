@@ -3,11 +3,14 @@ package com.example.todoapp
 import android.content.Context
 import android.widget.Space
 import androidx.compose.foundation.layout.*
+import androidx.compose.foundation.lazy.LazyColumn
+import androidx.compose.foundation.lazy.items
 import androidx.compose.material3.*
 import androidx.compose.runtime.*
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.unit.dp
+import androidx.compose.ui.unit.sp
 import kotlinx.coroutines.launch
 
 //@Composable
@@ -44,7 +47,8 @@ fun SharedPreferenceExample(context: Context) {
 
     var name by remember { mutableStateOf("") }
     var savedName by remember { mutableStateOf(helper.getName()) }
-
+    var savedesc by remember { mutableStateOf(helper.getdesc()) }
+    var desc by remember { mutableStateOf(helper.getName()) }
     Column(
         modifier = Modifier
             .fillMaxSize()
@@ -58,11 +62,22 @@ fun SharedPreferenceExample(context: Context) {
             modifier = Modifier.fillMaxWidth()
         )
 
+
+        Spacer(modifier = Modifier.height(16.dp))
+
+        TextField(
+            value = desc,
+            onValueChange = {desc=it},
+            label={ Text("Description") },
+            modifier = Modifier.fillMaxWidth()
+        )
         Spacer(modifier = Modifier.height(16.dp))
 
         Button(onClick = {
             helper.saveName(name)
             savedName = helper.getName()
+            helper.savedesc(desc)
+            savedesc=helper.getdesc()
         }) {
             Text("Save Name")
         }
@@ -70,6 +85,9 @@ fun SharedPreferenceExample(context: Context) {
         Spacer(modifier = Modifier.height(16.dp))
 
         Text("Saved Name: $savedName")
+        Text("Desc=$savedesc")
+
+
     }
 }
 
@@ -103,3 +121,35 @@ fun SharedPreferenceExample(context: Context) {
 //        Text("Saved name=$savedName")
 //    }
 //}
+
+//items(fruits) { fruit ->
+//    Text(
+//        text = fruit,
+//        fontSize = 20.sp,
+//        modifier = Modifier
+//            .padding(8.dp)
+//            .fillMaxWidth()
+//    )
+//}
+//}
+//}
+@Composable
+fun LazyCol()
+{
+    val fruits= listOf("Apple","Banana","Orange")
+    LazyColumn (
+        modifier = Modifier
+            .fillMaxSize()
+            .padding(16.dp)
+    ){
+        items(fruits) { fruit ->
+            Text(
+                text = fruit,
+                fontSize = 20.sp,
+                modifier = Modifier
+                    .padding(8.dp)
+                    .fillMaxWidth()
+            )
+        }
+    }
+}
