@@ -9,6 +9,7 @@ import androidx.compose.material3.*
 import androidx.compose.runtime.*
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalContext
+import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import kotlinx.coroutines.launch
@@ -152,4 +153,54 @@ fun LazyCol()
             )
         }
     }
+}
+
+
+
+
+@Composable
+fun TasksListUsingLazyColumn()
+{
+    val taskslist= remember { mutableStateListOf<String>() }
+    var inputTask by remember { mutableStateOf("") }
+
+    Column (
+        modifier = Modifier
+            .padding(16.dp)
+            .fillMaxSize()
+    ){
+        TextField(
+            value = inputTask,
+            onValueChange = {inputTask=it},
+            label = { Text("Enter The Task") }
+        )
+        Spacer(modifier = Modifier.height(16.dp))
+        Button(onClick = {
+            if (inputTask.isNotBlank())
+            {
+                taskslist.add(inputTask)
+                inputTask=""
+            }
+        }) {
+            Text("Add Task")
+        }
+        LazyColumn {
+            items(taskslist){task ->
+                Text(
+                    text = task,
+                    fontSize = 20.sp,
+                    modifier = Modifier
+                        .padding(8.dp)
+                        .fillMaxWidth()
+                )
+
+            }
+        }
+    }
+}
+
+@Preview (showBackground = true)
+@Composable fun PreviewTasksListUsingLazyColumn()
+{
+    TasksListUsingLazyColumn()
 }

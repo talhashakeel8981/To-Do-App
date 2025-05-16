@@ -42,8 +42,8 @@ class MainActivity : ComponentActivity() {
 //            }
 //            FirstExampleDateStore()
 //            SettingsScreen()
-            SharedPreferenceExample(this)
-            LazyCol()
+//            SharedPreferenceExample(this)
+            TasksListUsingLazyColumn()
 //             SharedPreferenceExamplePractise(this)
         }
 
