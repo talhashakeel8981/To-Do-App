@@ -43,7 +43,7 @@ class MainActivity : ComponentActivity() {
 //            FirstExampleDateStore()
 //            SettingsScreen()
 //            SharedPreferenceExample(this)
-            TasksListUsingLazyColumn()
+                TaskApp()
 //             SharedPreferenceExamplePractise(this)
         }
 
