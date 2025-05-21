@@ -77,6 +77,7 @@ fun TaskApp() {
                 Text("• ${task.title}")
 
                 Text("• ${task.title}")
+            
             }
         }
     }
