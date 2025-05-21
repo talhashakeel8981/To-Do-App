@@ -1,0 +1,14 @@
+<component name="libraryTable">
+  <library name="Gradle: androidx.compose.runtime:runtime-livedata:1.8.1@aar" external-system-id="GRADLE">
+    <CLASSES>
+      <root url="jar://$USER_HOME$/.gradle/caches/8.10.2/transforms/c7b4ccf8a4700a41d6d5b3618d3c7b2b/transformed/runtime-livedata-1.8.1/jars/classes.jar!/" />
+      <root url="file://$USER_HOME$/.gradle/caches/8.10.2/transforms/c7b4ccf8a4700a41d6d5b3618d3c7b2b/transformed/runtime-livedata-1.8.1/AndroidManifest.xml" />
+      <root url="file://$USER_HOME$/.gradle/caches/8.10.2/transforms/c7b4ccf8a4700a41d6d5b3618d3c7b2b/transformed/runtime-livedata-1.8.1/res" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/androidx.compose.runtime/runtime-livedata/1.8.1/c6e7abde059495cc66b29dc41e810f235d73131a/runtime-livedata-1.8.1-sources.jar!/" />
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/androidx.compose.runtime/runtime-livedata/1.8.1/1b76e5dcc49b2dec00bd4fc466703be8a9447466/runtime-livedata-1.8.1-samples-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>
