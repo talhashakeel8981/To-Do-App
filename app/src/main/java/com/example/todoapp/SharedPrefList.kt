@@ -75,6 +75,8 @@ fun TaskApp() {
                 // 🔸 UPDATED DISPLAY
                 Text("• ${task.name}")
                 Text("• ${task.title}")
+
+                Text("• ${task.title}")
             }
         }
     }
