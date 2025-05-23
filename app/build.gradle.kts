@@ -14,7 +14,6 @@ android {
         targetSdk = 35
         versionCode = 1
         versionName = "1.0"
-
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
     }
 
@@ -27,20 +26,23 @@ android {
             )
         }
     }
+
     compileOptions {
         sourceCompatibility = JavaVersion.VERSION_11
         targetCompatibility = JavaVersion.VERSION_11
+        isCoreLibraryDesugaringEnabled = true // ✅ Enable desugaring here
     }
+
     kotlinOptions {
         jvmTarget = "11"
     }
+
     buildFeatures {
         compose = true
     }
 }
 
 dependencies {
-
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.lifecycle.runtime.ktx)
     implementation(libs.androidx.activity.compose)
@@ -53,21 +55,24 @@ dependencies {
     implementation(libs.androidx.navigation.common.android)
     implementation(libs.androidx.navigation.compose)
     implementation(libs.androidx.benchmark.macro)
-    implementation(libs.androidx.foundation.layout.android)
-    implementation(libs.androidx.foundation.layout.android)
-    implementation(libs.androidx.foundation.layout.android)
-    implementation(libs.androidx.foundation.layout.android)
     implementation(libs.androidx.runtime.livedata)
     implementation("androidx.datastore:datastore-preferences:1.0.0")
-    implementation(libs.androidx.foundation.layout.android)
-    implementation(libs.androidx.foundation.layout.android)
-    implementation(libs.androidx.foundation.layout.android)
-    implementation(libs.androidx.foundation.layout.android)
     implementation(libs.firebase.crashlytics.buildtools)
+    implementation(libs.ads.mobile.sdk)
+    implementation("com.google.code.gson:gson:2.10.1")
+    implementation("androidx.compose.foundation:foundation:1.5.4")
+    implementation("androidx.compose.material:material-icons-core:1.5.4")
+    implementation("androidx.compose.material:material-icons-extended:1.5.4")
+    implementation("androidx.lifecycle:lifecycle-viewmodel-compose:2.6.2")
+    implementation("androidx.compose.runtime:runtime-livedata:1.5.4")
+    implementation("androidx.compose.material3:material3-window-size-class:1.1.2")
+
     implementation(libs.androidx.foundation.layout.android)
     implementation(libs.androidx.foundation.layout.android)
-    implementation(libs.androidx.foundation.layout.android)
-    implementation(libs.androidx.foundation.layout.android)
+
+    // ✅ Add desugaring support library
+    coreLibraryDesugaring("com.android.tools:desugar_jdk_libs:2.1.3")
+
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
@@ -75,8 +80,5 @@ dependencies {
     androidTestImplementation(libs.androidx.ui.test.junit4)
     debugImplementation(libs.androidx.ui.tooling)
     debugImplementation(libs.androidx.ui.test.manifest)
-    implementation("com.google.code.gson:gson:2.10.1")
-
-
 
 }

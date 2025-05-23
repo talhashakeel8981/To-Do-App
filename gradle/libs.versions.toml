@@ -15,6 +15,7 @@ benchmarkMacro = "1.3.4"
 foundationLayoutAndroid = "1.7.2"
 runtimeLivedata = "1.8.1"
 firebaseCrashlyticsBuildtools = "3.0.3"
+adsMobileSdk = "0.15.1-alpha01"
 
 [libraries]
 androidx-core-ktx = { group = "androidx.core", name = "core-ktx", version.ref = "coreKtx" }
@@ -38,6 +39,7 @@ androidx-benchmark-macro = { group = "androidx.benchmark", name = "benchmark-mac
 androidx-foundation-layout-android = { group = "androidx.compose.foundation", name = "foundation-layout-android", version.ref = "foundationLayoutAndroid" }
 androidx-runtime-livedata = { group = "androidx.compose.runtime", name = "runtime-livedata", version.ref = "runtimeLivedata" }
 firebase-crashlytics-buildtools = { group = "com.google.firebase", name = "firebase-crashlytics-buildtools", version.ref = "firebaseCrashlyticsBuildtools" }
+ads-mobile-sdk = { group = "com.google.android.libraries.ads.mobile.sdk", name = "ads-mobile-sdk", version.ref = "adsMobileSdk" }
 
 [plugins]
 android-application = { id = "com.android.application", version.ref = "agp" }
