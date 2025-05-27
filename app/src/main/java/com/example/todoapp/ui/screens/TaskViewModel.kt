@@ -12,6 +12,7 @@ import com.google.gson.reflect.TypeToken
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 
+<<<<<<< HEAD
 class TaskViewModel(application: Application) : AndroidViewModel(application) {
 
     private val prefs: SharedPreferences =
@@ -27,6 +28,20 @@ class TaskViewModel(application: Application) : AndroidViewModel(application) {
         if (taskTitle.isNotBlank()) {
             tasks.add(Task(taskTitle, dueDate, Description))
             saveTasks()
+=======
+class TaskViewModel : ViewModel() {
+
+    // ✅ First define tasks
+    private val tasks = mutableStateListOf<String>()
+
+    // ✅ Then expose it as taskList
+    val taskList = tasks
+
+    // Function to add task
+    fun addTask(task: String) {
+        if (task.isNotBlank()) {
+            tasks.add(task)
+>>>>>>> e4a4e5cf9787aca519c53f50dedf6d7db162e5ac
         }
     }
 
