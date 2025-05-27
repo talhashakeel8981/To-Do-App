@@ -32,6 +32,7 @@ fun AppNavigation() {
                     navController.navigate("detail/$index")
                 }
             )
+
         }
 
         composable("addTask") {
