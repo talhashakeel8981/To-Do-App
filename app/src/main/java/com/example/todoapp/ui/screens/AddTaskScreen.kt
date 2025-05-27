@@ -61,22 +61,37 @@ fun AddTaskScreen(
     onSave: () -> Unit,
     viewModel: TaskViewModel = viewModel()
 ) {
-    var newTask by remember { mutableStateOf("") }
-
+    var taskTitle by remember { mutableStateOf("") }
+    var dueDate by remember { mutableStateOf("") }
+    var Description by remember { mutableStateOf("") }
     Column(modifier = Modifier.padding(16.dp)) {
         TextField(
-            value = newTask,
-            onValueChange = { newTask = it },
+            value = taskTitle,
+            onValueChange = { taskTitle = it },
             label = { Text("Enter new task") },
             modifier = Modifier.fillMaxWidth()
         )
 
         Spacer(modifier = Modifier.height(8.dp))
 
+        TextField(
+            value = dueDate,
+            onValueChange = {dueDate=it},
+            label = { Text("Due Date") }
+        )
+        Spacer(modifier = Modifier.height(8.dp))
+        TextField(
+            value =Description,
+            onValueChange = {Description=it},
+            label = {Text("Description")}
+        )
+        Spacer(modifier = Modifier.height(8.dp))
         Button(onClick = {
-            viewModel.addTask(newTask)
+            viewModel.addTask(taskTitle,dueDate,Description)
             onSave()
-        }) {
+        },
+            modifier = Modifier.fillMaxWidth()
+        ) {
             Text("Save")
         }
     }
