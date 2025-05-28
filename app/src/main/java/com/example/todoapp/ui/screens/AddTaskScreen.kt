@@ -1,10 +1,12 @@
 package com.example.todoapp.ui.screens
 
 
+import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.*
 import androidx.compose.material3.*
 import androidx.compose.runtime.*
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.unit.dp
 
 //@OptIn(ExperimentalMaterial3Api::class)
@@ -64,35 +66,47 @@ fun AddTaskScreen(
     var taskTitle by remember { mutableStateOf("") }
     var dueDate by remember { mutableStateOf("") }
     var Description by remember { mutableStateOf("") }
-    Column(modifier = Modifier.padding(16.dp)) {
-        TextField(
-            value = taskTitle,
-            onValueChange = { taskTitle = it },
-            label = { Text("Enter new task") },
-            modifier = Modifier.fillMaxWidth()
-        )
 
-        Spacer(modifier = Modifier.height(8.dp))
+    Box (
+        modifier = Modifier
+            .fillMaxSize()
+            .background(Color(0xFFECEFF1))
+            .padding(16.dp)
+    ){
+        Column(modifier = Modifier.padding(16.dp))
 
-        TextField(
-            value = dueDate,
-            onValueChange = {dueDate=it},
-            label = { Text("Due Date") }
-        )
-        Spacer(modifier = Modifier.height(8.dp))
-        TextField(
-            value =Description,
-            onValueChange = {Description=it},
-            label = {Text("Description")}
-        )
-        Spacer(modifier = Modifier.height(8.dp))
-        Button(onClick = {
-            viewModel.addTask(taskTitle,dueDate,Description)
-            onSave()
-        },
-            modifier = Modifier.fillMaxWidth()
-        ) {
-            Text("Save")
+
+        {
+            TextField(
+                value = taskTitle,
+                onValueChange = { taskTitle = it },
+                label = { Text("Enter new task") },
+                modifier = Modifier.fillMaxWidth()
+            )
+
+            Spacer(modifier = Modifier.height(8.dp))
+
+            TextField(
+                value = dueDate,
+                onValueChange = {dueDate=it},
+                label = { Text("Due Date") }
+            )
+            Spacer(modifier = Modifier.height(8.dp))
+            TextField(
+                value =Description,
+                onValueChange = {Description=it},
+                label = {Text("Description")}
+            )
+            Spacer(modifier = Modifier.height(8.dp))
+            Button(onClick = {
+                viewModel.addTask(taskTitle,dueDate,Description)
+                onSave()
+            },
+                modifier = Modifier.fillMaxWidth()
+            ) {
+                Text("Save")
+            }
         }
     }
+
 }
