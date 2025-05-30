@@ -49,5 +49,11 @@ fun DetailScreen(
             Spacer(modifier = Modifier.height(8.dp))
             Text(text = "Description: ${task.Description}", style = MaterialTheme.typography.bodyMedium)
         }
+        Button(onClick = {}) {
+            Text("Edit")
+        }
+        Button(onClick = {}) {
+            Text("Delete")
+        }
     }
 }
